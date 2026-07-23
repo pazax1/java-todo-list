@@ -1,16 +1,20 @@
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class TaskManager {
-    Scanner scanner = new Scanner(System.in);
-    InputHandler inputHandler = new InputHandler();
+
+    private InputHandler inputHandler;
+    
+    public TaskManager(InputHandler inputHandler) {
+        this.inputHandler = inputHandler;
+    }
+
     ArrayList<String> toDoList = new ArrayList<String>();
 
     void addTask() {
             String toDoTask = "";
             System.out.println("-------------------------");
             System.out.print("Task to add: ");
-            toDoTask = scanner.next();
+            toDoTask = inputHandler.getTaskName();
             System.out.println("-------------------------");
             toDoList.add(toDoTask);
     }

@@ -1,8 +1,12 @@
+import java.util.Scanner;
+
 public class ToDoList {
 
     static void toDoMethod() {
-        TaskManager taskManager = new TaskManager();
-        InputHandler inputHandler = new InputHandler();
+        Scanner scanner = new Scanner(System.in);
+        
+        InputHandler inputHandler = new InputHandler(scanner);
+        TaskManager taskManager = new TaskManager(inputHandler); 
 
         int choice = 0;
 
@@ -28,5 +32,6 @@ public class ToDoList {
                     break;
             }
         }
+        scanner.close();
     }      
 }

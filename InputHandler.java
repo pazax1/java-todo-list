@@ -1,7 +1,17 @@
 import java.util.Scanner;
 
 public class InputHandler {
-    Scanner scanner = new Scanner(System.in);
+    
+    private Scanner scanner;
+    
+    public InputHandler(Scanner scanner) {
+        this.scanner = scanner;
+    }
+
+    String getTaskName() {
+        return scanner.next();
+    }
+
     int getMenuChoice() {
         int choice = 0; 
 
@@ -13,15 +23,15 @@ public class InputHandler {
                 if (choice <= 0 || choice > 4) {
                     ErrorHandler.wrongNumberError();
                     
+                } else {
+                    correctChoice = true;
                 }
-
-                correctChoice = true;
                 
             }
 
             catch (java.util.InputMismatchException e) {
                 ErrorHandler.wrongOptionError();
-                scanner.next();
+                this.getTaskName();
             }
 
         }
@@ -40,7 +50,7 @@ public class InputHandler {
 
             catch (java.util.InputMismatchException e) {
                 ErrorHandler.wrongOptionError();
-                scanner.next();
+                this.getTaskName();
             }
         } 
         return taskNum;
