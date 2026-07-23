@@ -1,14 +1,18 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
-public class ToDoList {
+public class ToDoListApp {
 
     static void toDoMethod() {
         Scanner scanner = new Scanner(System.in);
+        ArrayList<String> toDoList = new ArrayList<String>();
         
         InputHandler inputHandler = new InputHandler(scanner);
-        TaskManager taskManager = new TaskManager(inputHandler); 
-
+        FileManager fileManager = new FileManager(toDoList);
+        TaskManager taskManager = new TaskManager(inputHandler, toDoList); 
+        
         int choice = 0;
+        fileManager.loadTasks();
 
         while (choice != 4) {
             Menu.showMenu();
@@ -29,6 +33,7 @@ public class ToDoList {
                 case 4:
                     System.out.println("");
                     System.out.println("Goodbye!");
+                    fileManager.saveTasks();
                     break;
             }
         }

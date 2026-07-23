@@ -3,12 +3,12 @@ import java.util.ArrayList;
 public class TaskManager {
 
     private InputHandler inputHandler;
+    private ArrayList<String> toDoList;
     
-    public TaskManager(InputHandler inputHandler) {
+    public TaskManager(InputHandler inputHandler, ArrayList<String> toDoList) {
         this.inputHandler = inputHandler;
+        this.toDoList = toDoList;
     }
-
-    ArrayList<String> toDoList = new ArrayList<String>();
 
     void addTask() {
             String toDoTask = "";
